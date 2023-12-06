@@ -16,6 +16,7 @@ class ViewBooksFragment() : Fragment() {
 
     private lateinit var bookRepository: BookRepository
     private lateinit var bookAdapter: BookAdapter
+    private lateinit var currBooks: List<BookModel>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,14 +31,19 @@ class ViewBooksFragment() : Fragment() {
         bookRepository = BookRepository(requireContext())
 
         val recyclerView: RecyclerView = view.findViewById(R.id.recyclerView)
-        val books = bookRepository.getAllBooks();
-        bookAdapter = BookAdapter(books)
+        currBooks = bookRepository.getAllBooks();
+        bookAdapter = BookAdapter(currBooks)
 
         recyclerView.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = bookAdapter
         }
 
+    }
+    override fun onResume() {
+        super.onResume()
+        val books = bookRepository.getAllBooks()
+        if( currBooks!= books) bookAdapter.updateData(books)
     }
 
 }

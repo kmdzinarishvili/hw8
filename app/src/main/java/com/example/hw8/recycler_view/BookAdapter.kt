@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hw8.R
 
-class BookAdapter(private val dataList: List<BookModel>) : RecyclerView.Adapter<BookViewHolder>() {
+class BookAdapter(private var dataList: List<BookModel>) : RecyclerView.Adapter<BookViewHolder>() {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookViewHolder {
             val itemView = LayoutInflater.from(parent.context)
@@ -32,7 +32,10 @@ class BookAdapter(private val dataList: List<BookModel>) : RecyclerView.Adapter<
         override fun getItemCount(): Int {
             return dataList.size
         }
-
+        fun updateData(newData: List<BookModel>) {
+            dataList = newData
+            notifyDataSetChanged()
+        }
         private fun getRandomColor(): Int {
             val random = java.util.Random()
             return Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256))
