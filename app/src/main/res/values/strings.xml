@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">HW8</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="name_hint">Enter name…</string>
+    <string name="desc_hint">Enter Description</string>
+    <string name="add_page_title">Add Item Page</string>
+    <string name="add_object_btn_text">Add Object</string>
+    <string name="enter_title">Enter Title…</string>
+    <string name="enter_author">Enter Author…</string>
+    <string name="dummy_title">Title by Author</string>
+    <string name="description">Description</string>
+</resources>
